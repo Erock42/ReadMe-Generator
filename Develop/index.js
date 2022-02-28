@@ -8,7 +8,7 @@ const questions = () => {
         {
           type: 'input',
           name: 'title',
-          message: 'What is the title of your project? (Required)',
+          message: 'What is the title of your project?',
           validate: nameInput => {
             if (nameInput) {
               return true;
@@ -26,7 +26,7 @@ const questions = () => {
             if (githubInput) {
               return true;
             } else {
-              console.log('Please enter your GitHub!');
+              console.log('Please enter your GitHub link!');
               return false;
             }
           }
