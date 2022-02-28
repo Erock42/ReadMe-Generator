@@ -2,6 +2,8 @@ function generateMarkdown(data) {
 
   return `# ${data.title}
 
+  ${data.deployed}
+
   ## Table of Contents 
   - [Description](#description)
   - [Installation](#installation)

@@ -1,12 +1,8 @@
-// TODO: Include packages needed for this application
-
 const inquirer = require('inquirer')
 const generateMarkdown = require('./utils/generateMarkdown');
 const fs = require('fs')
 
-// TODO: Create an array of questions for user input
-const questions = () => {
-
+const questions = readmeData => {
   console.log(`
 ======================
 Create a New README.md
@@ -27,6 +23,8 @@ Create a New README.md
             }
           }
         },
+
+        
         {
           type: 'input',
           name: 'github',
@@ -43,9 +41,49 @@ Create a New README.md
 
         {
           type: 'input',
+          name: 'contribution',
+          message: 'Who contributed to this project?',
+          validate: contribution => {
+              if (contribution) {
+                  return true;
+              } else {
+                  console.log('List contributors for this project');
+                  return false;
+              }
+          }
+      },
+        {
+          type: 'input',
+          name: 'deployed',
+          message: 'URL link for your project (Required)',
+          validate: deployed => {
+              if (deployed) {
+                  return true;
+              } else {
+                  console.log('Enter a functional link')
+                  return false;
+              }
+          }
+      },
+      {
+        type: 'input',
+        name: 'usage',
+        message: 'How will the application be used? (Required)',
+        validate: usage => {
+            if (usage) {
+                return true;
+            } else {
+                console.log('Enter description');
+                return false;
+            }
+        }
+    },
+
+        {
+          type: 'checkbox',
           name: 'license',
-          choices: ['MIT', 'ODbl', 'Apache_2.0', 'IPL_1.0'],
           message: 'Add a license to your project',
+          choices: ['MIT', 'ODbl', 'Apache_2.0', 'IPL_1.0'],
            validate: licenseInput => {
               if (licenseInput) {
                   return true;
@@ -73,13 +111,13 @@ Create a New README.md
       ]);
     };
 
-    function writeFile(fileContent) {
-  return new Promise((resolve, reject) => {
-    fs.writeFile('./dist/README.md', fileContent, err => {
-      if (err) {
-        reject(err);
-        return;
-      }
+  const writeFile = fileContent => {
+    return new Promise((resolve, reject) => {
+      fs.writeFile('./README.md', fileContent, err => {
+        if (err) {
+          reject(err);
+          return;
+        }
       resolve({
         ok: true,
         message: 'README.md created'
