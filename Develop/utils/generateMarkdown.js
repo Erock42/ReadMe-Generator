@@ -27,19 +27,17 @@ function generateMarkdown(data) {
 
   ## License:
 
+  [![license](https://img.shields.io/badge/license-${data.license}.svg)-brightgreen]
+
   ${data.license}
-
-  ## Contribution:
-
-  ${data.contribution}
 
   ## Tests:
 
   ${data.testing}
 
-  ## License:
+  ## Contribution:
 
-  [![license](https://img.shields.io/badge/license-${data.license}.svg)-brightgreen]
+  ${data.contribution}
 
   ## Questions:
 

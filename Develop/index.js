@@ -24,7 +24,49 @@ Create a New README.md
           }
         },
 
+        {
+          type: 'input',
+          name: 'testing',
+          message: 'Enter testing instructions',
+          validate: testInput => {
+            if (testInput) {
+              return true;
+            } else {
+              console.log('Please enter testing instructions');
+              return false;
+            }
+          }
+        },
+
         
+        {
+          type: 'input',
+          name: 'description',
+          message: 'Enter a description of your application',
+          validate: descriptionInput => {
+            if (descriptionInput) {
+              return true;
+            } else {
+              console.log('Please enter a description');
+              return false;
+            }
+          }
+        },
+
+        {
+          type: 'input',
+          name: 'installation',
+          message: 'Enter installation instructions',
+          validate: installationInput => {
+            if (installationInput) {
+              return true;
+            } else {
+              console.log('Please enter your GitHub link');
+              return false;
+            }
+          }
+        },
+
         {
           type: 'input',
           name: 'github',
@@ -55,7 +97,7 @@ Create a New README.md
         {
           type: 'input',
           name: 'deployed',
-          message: 'URL link for your project (Required)',
+          message: 'URL link for your project',
           validate: deployed => {
               if (deployed) {
                   return true;
@@ -68,7 +110,7 @@ Create a New README.md
       {
         type: 'input',
         name: 'usage',
-        message: 'How will the application be used? (Required)',
+        message: 'How will the application be used?',
         validate: usage => {
             if (usage) {
                 return true;
