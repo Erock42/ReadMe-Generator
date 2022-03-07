@@ -9,6 +9,8 @@ Create a New README.md
 ======================
 `);
 
+//questions
+
     return inquirer.prompt([
         {
           type: 'input',
