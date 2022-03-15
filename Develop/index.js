@@ -85,10 +85,10 @@ Create a New README.md
 
         {
           type: 'input',
-          name: 'contribution',
+          name: 'contributing',
           message: 'Who contributed to this project?',
-          validate: contribution => {
-              if (contribution) {
+          validate: contributing => {
+              if (contributing) {
                   return true;
               } else {
                   console.log('List contributors for this project');
